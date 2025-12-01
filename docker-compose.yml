@@ -1,0 +1,17 @@
+﻿services:
+  leaderboard-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: leaderboard-simulator:latest
+    container_name: leaderboard_sim
+    
+    stdin_open: true
+    tty: true
+    
+    volumes:
+      - ./Logs:/app/Logs
+      - ./Data:/app/Data
+
+    environment:
+      - DOTNET_ENVIRONMENT=Production
