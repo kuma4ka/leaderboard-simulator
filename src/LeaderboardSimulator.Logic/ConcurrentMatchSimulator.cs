@@ -21,7 +21,7 @@ public class ConcurrentMatchSimulator(List<Match> matches)
             Parallel.ForEach(match.Players, parallelOptions, player =>
             {
                 var scores = Random.Next(1, 11);
-                if (player.Name != null)
+                if (player.Name is not null)
                 {
                     match.ScorePlayer(player.Name, scores);
                 }

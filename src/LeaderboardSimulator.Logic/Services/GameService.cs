@@ -10,7 +10,7 @@ public class GameService(IGameCache gameCache, IGameMapper gameMapper) : IGameSe
     public async Task<Game?> GetGameAsync()
     {
         var gameDTO = await gameCache.LoadAsync();
-        return gameDTO == null ? null : gameMapper.ToModel(gameDTO);
+        return gameDTO is null ? null : gameMapper.ToModel(gameDTO);
     }
 
     public async Task SaveGameAsync(Game game)
